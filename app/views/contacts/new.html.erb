@@ -1,0 +1,44 @@
+<h1>New Contact</h1>
+<%= form_for @contact do | form | %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :birth_date %>
+    <%= form.date_field :birth_date %>
+  </div>
+
+  <div>
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :credit_card %>
+    <%= form.text_field :credit_card %>
+  </div>
+
+  <div>
+    <%= form.label :franchise %>
+    <%= form.text_field :franchise %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+<%= link_to 'My Contacts', contacts_path %>
