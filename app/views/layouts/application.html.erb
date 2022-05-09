@@ -12,7 +12,9 @@
   </head>
 
   <body>
-    <nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  <nav>
       <%= link_to 'Home', contacts_path %> |
       <%= link_to 'Add Contact', new_contact_path %> |
       <%= link_to 'Import CSV', contacts_path %>
