@@ -1,0 +1,30 @@
+<h1>Contacts List</h1>
+<p style="color: green"><%= notice %></p>
+<section>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date of Birth</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Credit Card</th>
+      <th>Franchise</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.birth_date %></td>
+        <td><%= contact.phone %></td>
+        <td><%= contact.address %></td>
+        <td><%= contact.credit_card %></td>
+        <td><%= contact.franchise %></td>
+        <td><%= contact.email %></td>
+      </tr>
+      </tbody>
+    <% end %>
+    </table>
+</section>
