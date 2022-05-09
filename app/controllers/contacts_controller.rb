@@ -1,6 +1,8 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(user_id: current_user.id)
   end
 
   def new
@@ -8,7 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(contact_params)
+    @contact = current_user.contacts.build(contact_params)
     if @contact.save
       redirect_to contacts_path, notice: "The contact has been created."
     else
