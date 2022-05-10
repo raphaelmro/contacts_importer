@@ -27,17 +27,20 @@ RSpec.describe Contact, type: :model do
     it { is_expected.to validate_presence_of(:cc_last_digits) }
   end
 
-  describe 'credit card before validations' do
+  describe 'credit card before/after validations' do
     let(:contact) { FactoryBot.create(:contact) }
     before { contact.save! }
 
+    it 'should  validate the credit card encrypted number' do
+      expect(BCrypt::Password.create(contact.credit_card)).to eq('371449635398431')
+    end
+
     it 'should get the last four digits' do
-      expect(contact.cc_last_digits).to eq('1111')
+      expect(contact.cc_last_digits).to eq('8431')
     end
 
     it 'should return the credit card franchise' do
-      expect(contact.franchise).to eq('Visa')
+      expect(contact.franchise).to eq('American Express')
     end
   end
-
 end
