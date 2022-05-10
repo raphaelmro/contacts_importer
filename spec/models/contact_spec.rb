@@ -25,4 +25,17 @@ RSpec.describe Contact, type: :model do
     it { is_expected.to validate_presence_of(:birth_date) }
   end
 
+  describe 'credit card actions' do
+    let(:contact) { FactoryBot.create(:contact) }
+    before { contact.save! }
+
+    # it 'should get the last four digits' do
+    #   expect(contact.cc_last_four_digits).to eq('1234')
+    # end
+
+    it 'should return the credit card franchise' do
+      expect(contact.franchise).to eq('Visa')
+    end
+  end
+
 end
