@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require 'csv'
 require 'credit_card_validations/string'
 
 # Require the gems listed in Gemfile, including any gems
