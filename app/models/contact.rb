@@ -11,7 +11,7 @@ class Contact < ApplicationRecord
                       message: "only allows valid emails"
 
   validates :name, :email, :birth_date, :address, :phone,
-            :credit_card, :franchise, presence: true
+            :credit_card, :franchise, :cc_last_digits, presence: true
 
 
   def set_cc_franchise_name
@@ -19,7 +19,7 @@ class Contact < ApplicationRecord
     self.franchise = franchise_name
   end
 
-  # def set_cc_last_four_digits
-  #   self.credit_card = self.credit_card[-4..-1]
-  # end
+  def set_cc_last_four_digits
+    self.cc_last_digits = self.credit_card[-4..-1]
+  end
 end
