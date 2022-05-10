@@ -2,7 +2,7 @@ class CsvImportController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @csv_imports = CsvImport.where(user_id: current_user.id)
+    # @csv_imports = CsvImport.where(user_id: current_user.id)
   end
 
   def new
