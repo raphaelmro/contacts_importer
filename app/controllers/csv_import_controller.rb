@@ -14,12 +14,10 @@ class CsvImportController < ApplicationController
   end
 
   def import
-    CSV.foreach(params[:file], headers: true) do |row|
-      csv_hash = row.to_hash
-      csv_hash['user_id'] = current_user.id
-      Contact.create!(csv_hash)
-    end
-    CsvImport.create!(user_id: current_user.id, filename: params[:file].original_filename)
+    file_path_to_save_to = './tmp/' + params[:file].original_filename
+    File.write(file_path_to_save_to, params[:file].read)
+
+    ImportCsvFileJob.perform_later(file_path_to_save_to, params[:file].original_filename, current_user)
 
     redirect_to contacts_path, notice: "CSV imported successfully"
   end
