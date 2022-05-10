@@ -1,5 +1,6 @@
 class Contact < ApplicationRecord
   belongs_to :user
+  before_validation :set_cc_franchise_name, :set_cc_last_four_digits
 
   REGEX_NAME = /\A[^0-9`!@#\$%\^&*+_=]+\z/.freeze
   REGEX_MAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
@@ -13,13 +14,12 @@ class Contact < ApplicationRecord
             :credit_card, :franchise, presence: true
 
 
-  def card_franchise
-    card_franchise_name = CreditCardValidations::Detector.new(self.credit_card).brand_name
-    self.franchise = card_franchise_name
+  def set_cc_franchise_name
+    franchise_name = CreditCardValidations::Detector.new(self.credit_card).brand_name
+    self.franchise = franchise_name
   end
 
-  def my_card
-    self.credit_card = credit_card
-  end
-
+  # def set_cc_last_four_digits
+  #   self.credit_card = self.credit_card[-4..-1]
+  # end
 end
