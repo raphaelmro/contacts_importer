@@ -1,6 +1,7 @@
 class Contact < ApplicationRecord
   belongs_to :user
   before_validation :set_cc_franchise_name, :set_cc_last_four_digits
+  after_validation :encrypt_cc_number, on: :create
 
   REGEX_NAME = /\A[^0-9`!@#\$%\^&*+_=]+\z/.freeze
   REGEX_MAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
