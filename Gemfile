@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
 
+gem 'credit_card_validations'
 gem 'devise'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
@@ -22,6 +23,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
