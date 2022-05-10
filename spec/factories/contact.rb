@@ -5,7 +5,7 @@ FactoryBot.define do
     phone { "(+57) 320-432-05-09" }
     address { "Pallet" }
     credit_card { "4111111111111111" }
-    franchise { "Visa" }
     email { "diglett@pokemon.com" }
+    user
   end
 end
