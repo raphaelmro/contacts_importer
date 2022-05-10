@@ -14,6 +14,7 @@ class Contact < ApplicationRecord
             :credit_card, :franchise, :cc_last_digits, presence: true
 
 
+  private
   def set_cc_franchise_name
     franchise_name = CreditCardValidations::Detector.new(self.credit_card).brand_name
     self.franchise = franchise_name
