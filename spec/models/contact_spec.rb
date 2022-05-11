@@ -23,8 +23,6 @@ RSpec.describe Contact, type: :model do
     it { is_expected.to validate_presence_of(:address) }
     it { is_expected.to validate_presence_of(:phone) }
     it { is_expected.to validate_presence_of(:birth_date) }
-    it { is_expected.to validate_presence_of(:franchise) }
-    it { is_expected.to validate_presence_of(:cc_last_digits) }
   end
 
   describe 'credit card before/after validations' do

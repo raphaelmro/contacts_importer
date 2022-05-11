@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe ContactsController, type: :controller do
   let(:user) { create(:user) }
 
+  #TODO sign in user
+
   describe 'GET #index' do
     it 'renders contacts with success' do
       get :index
@@ -22,7 +24,6 @@ RSpec.describe ContactsController, type: :controller do
             birth_date: '01/01/2000',
             address: 'Calle falsa 123',
             credit_card: '4234567890123456',
-            franchise: 'Visa',
           }
         }
       }.to change { Contact.count }.from(0).to(1)
