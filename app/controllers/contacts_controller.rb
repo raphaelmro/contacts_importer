@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contacts_path, notice: "The contact has been created."
     else
-      redirect_to contacts_path, error: "The contact could not be created."
+      redirect_to new_contact_path, alert: "The contact could not be created."
     end
 
   end
