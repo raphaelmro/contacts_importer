@@ -14,13 +14,15 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-  <nav>
-      <%= link_to 'Home', contacts_path %> |
-      <%= link_to 'Add Contact Manually', new_contact_path %> |
-      <%= link_to 'Import CSV', new_csv_import_path %> |
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
-
+    <nav>
+        <%= link_to 'Home', contacts_path %> |
+        <%= link_to 'Add Contact Manually', new_contact_path %> |
+        <%= link_to 'Import CSV', new_csv_import_path %> |
+        <%= link_to 'My Import Logs', csv_import_index_path %> |
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
     </nav>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
