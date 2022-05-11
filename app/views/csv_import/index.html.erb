@@ -1,0 +1,22 @@
+<h1>My Import Logs</h1>
+
+<section>
+  <table>
+    <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Created at</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @csv_imports.each do |import| %>
+      <tr>
+        <td><%= import.filename %></td>
+        <td><%= import.created_at %></td>
+        <td><%= import.status %></td>
+      </tr>
+      </tbody>
+    <% end %>
+    </table>
+</section>
