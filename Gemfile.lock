@@ -291,7 +291,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   shoulda-matchers
-  sidekiq
+  sidekiq (~> 6.4.2)
   spring
   turbolinks (~> 5)
   tzinfo-data
