@@ -17,7 +17,7 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= contact.name %></td>
-        <td><%= contact.birth_date %></td>
+        <td><%= contact.birth_date.strftime("%Y %B %d") %></td>
         <td><%= contact.phone %></td>
         <td><%= contact.address %></td>
         <td><%= contact.cc_last_digits %></td>
