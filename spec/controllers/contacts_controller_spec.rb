@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe ContactsController, type: :controller do
   let(:user) { create(:user) }
 
-  #TODO sign in user
+  before do
+    login_as user
+  end
 
   describe 'GET #index' do
     it 'renders contacts with success' do
