@@ -14,6 +14,8 @@ class Contact < ApplicationRecord
   validates :name, :email, :birth_date, :address, :phone,
             :credit_card, :franchise, :cc_last_digits, presence: true
 
+  validates :name, length: { minimum: 2 }
+
 
   private
   def set_cc_franchise_name
