@@ -12,9 +12,9 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.build(contact_params)
     if @contact.save
-      redirect_to contacts_path, notice: "The contact has been created."
+      redirect_to contacts_path, status: :created, notice: "The contact has been created."
     else
-      redirect_to new_contact_path, alert: "The contact could not be created."
+      render new_contact_path, status: :unprocessable_entity
     end
 
   end
